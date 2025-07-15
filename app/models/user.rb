@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # Enums
-  enum role: { client: 0, pm: 1 }
+  enum :role, { client: 0, pm: 1 }
 
   # Associations
   has_many :projects, foreign_key: :user_id
