@@ -1,0 +1,117 @@
+<%= render 'shared/hero_section', 
+    title: @project.name, 
+    subtitle: "Project Details" %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3><i class="fas fa-info-circle me-2"></i>Project Information</h3>
+          <%= status_badge(@project.status) %>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h5><i class="fas fa-tag me-2"></i>Project Name</h5>
+              <p class="text-muted"><%= @project.name %></p>
+            </div>
+            <div class="col-md-6">
+              <h5><i class="fas fa-calendar me-2"></i>Created Date</h5>
+              <p class="text-muted"><%= formatted_date(@project.created_at) %></p>
+            </div>
+          </div>
+          
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <h5><i class="fas fa-user me-2"></i>Client</h5>
+              <p class="text-muted"><%= @project.client.name %></p>
+            </div>
+            <div class="col-md-6">
+              <h5><i class="fas fa-user-tie me-2"></i>Project Manager</h5>
+              <p class="text-muted"><%= @project.pm.name %></p>
+            </div>
+          </div>
+          
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <h5><i class="fas fa-dollar-sign me-2"></i>Total Price</h5>
+              <p class="text-muted"><%= @project.formatted_price %></p>
+            </div>
+            <div class="col-md-6">
+              <h5><i class="fas fa-clock me-2"></i>Days Since Created</h5>
+              <p class="text-muted"><%= @project.days_since_created %> days ago</p>
+            </div>
+          </div>
+          
+          <div class="row mt-3">
+            <div class="col-12">
+              <h5><i class="fas fa-link me-2"></i>Raw Footage</h5>
+              <p class="text-muted">
+                <% if @project.footage_link.present? %>
+                  <%= link_to view_footage_project_path(@project), class: 'btn btn-outline-primary btn-sm' do %>
+                    <i class="fas fa-play-circle me-1"></i>View Footage
+                  <% end %>
+                <% else %>
+                  <span class="text-muted">No footage link provided</span>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h3><i class="fas fa-video me-2"></i>Video Types</h3>
+        </div>
+        <div class="card-body">
+          <% if @project.video_types.any? %>
+            <% @project.video_types.each do |video_type| %>
+              <div class="video-type-item mb-3">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-1"><%= video_type.name %></h6>
+                    <small class="text-muted"><%= video_type.format %></small>
+                  </div>
+                  <div class="text-end">
+                    <span class="badge bg-primary"><%= formatted_price(video_type.price) %></span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <p class="text-muted">No video types selected</p>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="card mt-4">
+        <div class="card-header">
+          <h3><i class="fas fa-cog me-2"></i>Actions</h3>
+        </div>
+        <div class="card-body">
+          <%= link_to projects_path, class: "btn btn-secondary w-100 mb-2" do %>
+            <i class="fas fa-arrow-left me-2"></i>Back to Projects
+          <% end %>
+          
+          <% if @project.in_progress? %>
+            <button class="btn btn-success w-100 mb-2" disabled>
+              <i class="fas fa-spinner me-2"></i>Project In Progress
+            </button>
+          <% elsif @project.completed? %>
+            <button class="btn btn-primary w-100 mb-2">
+              <i class="fas fa-download me-2"></i>Download Files
+            </button>
+          <% end %>
+          
+          <%= link_to order_new_projects_path, class: "btn btn-outline-primary w-100" do %>
+            <i class="fas fa-plus me-2"></i>New Project
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<%= render 'shared/hero_section', 
+    title: 'View Footage', 
+    subtitle: 'Raw Footage Viewer' %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white text-center">
+          <h3><i class="fas fa-video me-2"></i>Footage Viewer</h3>
+        </div>
+        <div class="card-body text-center py-5">
+          <div class="mb-4">
+            <i class="fas fa-tools text-primary" style="font-size: 4rem;"></i>
+          </div>
+          
+          <h2 class="text-primary mb-3">Coming Soon!</h2>
+          
+          <p class="text-muted mb-4 lead">
+            We're working hard to bring you an amazing footage viewing experience. 
+            This feature will be available soon!
+          </p>
+          
+          <div class="alert alert-info mb-4">
+            <i class="fas fa-info-circle me-2"></i>
+            <strong>Project:</strong> <%= @project.name %><br>
+            <strong>Footage Link:</strong> 
+            <% if @project.footage_link.present? %>
+              <span class="text-primary"><%= @project.footage_link %></span>
+            <% else %>
+              <span class="text-muted">No footage link provided</span>
+            <% end %>
+          </div>
+          
+          <div class="mb-4">
+            <h5 class="text-secondary mb-3">What's Coming:</h5>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="feature-item">
+                  <i class="fas fa-play-circle text-primary mb-2" style="font-size: 2rem;"></i>
+                  <h6>Video Player</h6>
+                  <p class="text-muted small">Built-in video player with timeline controls</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="feature-item">
+                  <i class="fas fa-download text-primary mb-2" style="font-size: 2rem;"></i>
+                  <h6>Download Options</h6>
+                  <p class="text-muted small">Multiple format and quality options</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="feature-item">
+                  <i class="fas fa-comments text-primary mb-2" style="font-size: 2rem;"></i>
+                  <h6>Comments & Notes</h6>
+                  <p class="text-muted small">Add timestamped comments and feedback</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="d-flex justify-content-center gap-3">
+            <%= link_to project_path(@project), class: 'btn btn-primary' do %>
+              <i class="fas fa-arrow-left me-2"></i>Back to Project
+            <% end %>
+            
+            <% if @project.footage_link.present? && @project.footage_link.match?(/\Ahttps?:\/\//) %>
+              <%= link_to @project.footage_link, target: '_blank', class: 'btn btn-outline-primary' do %>
+                <i class="fas fa-external-link-alt me-2"></i>Open External Link
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,12 @@
+<%= render 'shared/hero_section', 
+    title: 'Your Video Projects', 
+    subtitle: 'Manage and track all your video editing projects in one place',
+    show_cta: true %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= render 'shared/projects_list', projects: @projects %>
+    </div>
+  </div>
+</div>

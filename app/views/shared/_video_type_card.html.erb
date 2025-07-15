@@ -1,0 +1,10 @@
+<div class="col-md-6 mb-4">
+  <div class="card video-type-card" data-video-type-id="<%= video_type.id %>" onclick="handleCardClick(event, this)">
+    <div class="price-tag">$<%= video_type.price %></div>
+    <div class="card-body text-center">
+      <i class="fas fa-film video-icon"></i>
+      <h5 class="card-title"><%= video_type.name %></h5>
+      <p class="card-text"><%= video_type.format %></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div id="projectsList">
+  <% if projects.empty? %>
+    <div class="empty-state">
+      <i class="fas fa-folder-open empty-state-icon"></i>
+      <h3>No Projects Yet</h3>
+      <p>Start your first video project to see it here</p>
+      <%= link_to order_new_projects_path, class: "btn btn-primary" do %>
+        <i class="fas fa-plus me-2"></i>Create Your First Project
+      <% end %>
+    </div>
+  <% else %>
+    <% projects.each do |project| %>
+      <%= render 'shared/project_card', project: project %>
+    <% end %>
+  <% end %>
+</div>

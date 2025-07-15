@@ -1,0 +1,21 @@
+<div class="card project-card fade-in">
+  <div class="card-body">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <h4 class="card-title"><%= project.name %></h4>
+        <p class="card-text">
+          <i class="fas fa-user me-2"></i>PM: <%= project.pm.name %><br>
+          <i class="fas fa-calendar me-2"></i>Created: <%= formatted_date(project.created_at) %><br>
+          <i class="fas fa-video me-2"></i>Videos: <%= project.video_types_summary %><br>
+          <i class="fas fa-dollar-sign me-2"></i>Total: <%= project.formatted_price %>
+        </p>
+      </div>
+      <div class="col-md-4 text-end">
+        <%= status_badge(project.status) %>
+        <div class="mt-2">
+          <%= project_action_button(project) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

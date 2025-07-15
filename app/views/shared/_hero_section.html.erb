@@ -1,0 +1,15 @@
+<div class="hero-section">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h1 class="hero-title"><%= title %></h1>
+        <p class="hero-subtitle"><%= subtitle %></p>
+        <% if local_assigns[:show_cta] %>
+          <%= link_to order_new_projects_path, class: "btn btn-primary btn-lg" do %>
+            <i class="fas fa-plus me-2"></i>Start New Project
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
