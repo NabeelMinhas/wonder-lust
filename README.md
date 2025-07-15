@@ -2,6 +2,9 @@
 
 A comprehensive video project submission and management application built with Ruby on Rails. This mini-app allows clients to create video projects, select video types, and manage their video editing requests with automatic project manager assignment and background job processing.
 
+## 🚀 Demo Video
+https://jam.dev/c/d2eed49d-ad93-475a-8cc1-11f914a3958b
+
 ## 🚀 Features
 
 - **Client Project Management**: Clients can view their projects and create new ones
