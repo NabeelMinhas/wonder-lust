@@ -1,0 +1,29 @@
+wedding_project:
+  name: "Wedding Video Project"
+  footage_link: "https://drive.google.com/wedding-footage"
+  status: "in_progress"
+  total_price: 299.99
+  client: client
+  pm: pm
+  user_id: 1  # references client
+  pm_id: 2    # references pm
+
+corporate_project:
+  name: "Corporate Documentary"
+  footage_link: "https://drive.google.com/corporate-footage"
+  status: "completed"
+  total_price: 999.99
+  client: another_client
+  pm: pm
+  user_id: 3  # references another_client
+  pm_id: 2    # references pm
+
+draft_project:
+  name: "Draft Project"
+  footage_link: "https://drive.google.com/draft-footage"
+  status: "draft"
+  total_price: 149.99
+  client: client
+  pm: another_pm
+  user_id: 1  # references client
+  pm_id: 4    # references another_pm

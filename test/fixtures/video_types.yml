@@ -1,0 +1,19 @@
+highlight_reel:
+  name: "Highlight Reel"
+  price: 299.99
+  format: "16:9 HD (1920x1080)"
+
+documentary:
+  name: "Full Documentary"
+  price: 999.99
+  format: "16:9 4K (3840x2160)"
+
+social_media:
+  name: "Social Media Teaser"
+  price: 149.99
+  format: "1:1 Square (1080x1080)"
+
+instagram_story:
+  name: "Instagram Story"
+  price: 199.99
+  format: "9:16 Vertical (1080x1920)"

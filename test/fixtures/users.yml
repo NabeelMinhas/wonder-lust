@@ -1,0 +1,19 @@
+client:
+  name: "John Doe"
+  email: "john@example.com"
+  role: "client"
+
+pm:
+  name: "Jane Smith"
+  email: "jane@example.com"
+  role: "pm"
+
+another_client:
+  name: "Bob Johnson"
+  email: "bob@example.com"
+  role: "client"
+
+another_pm:
+  name: "Alice Brown"
+  email: "alice@example.com"
+  role: "pm"
